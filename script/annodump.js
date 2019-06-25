@@ -188,7 +188,7 @@ function getIllustrations(canvas, annoList) {
     var html = "<div class='annoInfo illustrations'>";
     annoList.resources.forEach(function(res){
         if(res.motivation == "oa:classifying" && res.resource["@id"] == "dctypes:Image"){
-            html += "<div><p>" + res.resource.label + "</p><a target='_blank' href='" + getImageLink(canvas, res.on) + "'><img src='" + getImageLink(canvas, res.on, 0.15) + "' /></a></div>";
+            html += "<div><p>" + res.resource.label + "</p><a target='_blank' href='" + getImageLink(canvas, res.selector.value) + "'><img src='" + getImageLink(canvas, res.on, 0.15) + "' /></a></div>";
         }
     });
     html += "</div>";
@@ -197,11 +197,11 @@ function getIllustrations(canvas, annoList) {
 
 function getImageLink(canvas, target, scale){
     var size = "full";
-//     var region = /#xywh=(.*)/g.exec(target)[1];
-//     if(scale && scale > 0 && scale < 1){
-//         
-//         var w = Math.floor(region.split(",")[2] * scale);
-//         size = w + ",";
-//     }
-    return canvas.images[0].resource.service["@id"] + "/full/" + size + "/0/default.jpg";
+    var region = /xywh=(.*)/g.exec(target)[1];
+    if(scale && scale > 0 && scale < 1){
+        
+        var w = Math.floor(region.split(",")[2] * scale);
+        size = w + ",";
+    }
+    return canvas.images[0].resource.service["@id"] + "/" + region + "/" + size + "/0/default.jpg";
 }
