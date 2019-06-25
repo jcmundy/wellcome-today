@@ -176,7 +176,7 @@ function getParticularSizeThumb(canvas, thumbSize){
 function getTextLines(canvas, annoList) {
     var html = "<div class='annoInfo textLines'>";
     annoList.resources.forEach(function(res){
-        if(res.motivation == "sc:painting" && res.resource["@type"] == "dctypes:Text"){
+        if(res.motivation == "sc:painting" && res.resource.format == "text/html"){
             html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on.within[@id]) + "'>" + res.resource.chars + "</a></div>";
         }
     });
