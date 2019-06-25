@@ -198,10 +198,10 @@ function getIllustrations(canvas, annoList) {
 function getImageLink(canvas, target, scale){
     var size = "full";
 //     var region = /#xywh=(.*)/g.exec(target)[1];
-    if(scale && scale > 0 && scale < 1){
-        
-        var w = Math.floor(region.split(",")[2] * scale);
-        size = w + ",";
-    }
+//     if(scale && scale > 0 && scale < 1){
+//         
+//         var w = Math.floor(region.split(",")[2] * scale);
+//         size = w + ",";
+//     }
     return canvas.images[0].resource.service["@id"] + "/full/" + size + "/0/default.jpg";
 }
