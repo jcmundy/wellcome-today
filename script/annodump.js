@@ -177,7 +177,7 @@ function getTextLines(canvas, annoList) {
     var html = "<div class='annoInfo textLines'>";
     annoList.resources.forEach(function(res){
         if(res.motivation == "sc:painting" && res.resource.format == "text/html"){
-            html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on) + "'>" + res.resource.chars + "</a></div>";
+            html += "<div><a target='_blank' href='" + getImageLink(canvas, res.selector.value) + "'>" + res.resource.chars + "</a></div>";
         }
     });
     html += "</div>";
