@@ -197,7 +197,7 @@ function getIllustrations(canvas, annoList) {
 
 function getImageLink(canvas, target, scale){
     var size = "full";
-    var region = target.substring(5)[1];
+    var region = target.substring(4)[1];
     if(scale && scale > 0 && scale < 1){
         
         var w = Math.floor(region.split(",")[2] * scale);
