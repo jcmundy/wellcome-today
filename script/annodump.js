@@ -133,7 +133,7 @@ function appendCanvas(i, canvas){
     var canvasDiv = $("<div class='canvas'></div>");
     annos.append(canvasDiv);
     if(canvas.otherContent){
-        $.getJSON(canvas.otherContent[0]["@id"], function(annoList){
+        $.getJSON(canvas.seeAlso[0]["@id"], function(annoList){
             makeCanvasHtml(canvas, canvasDiv, annoList);
         });
     } else {
