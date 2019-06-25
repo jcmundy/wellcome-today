@@ -133,7 +133,7 @@ function appendCanvas(i, canvas){
     var canvasDiv = $("<div class='canvas'></div>");
     annos.append(canvasDiv);
     if(canvas.otherContent){
-        $.getJSON(canvas.seeAlso[0]["@id"], function(annoList){
+        $.getJSON(canvas.otherContent[0]["@id"], function(annoList){
             makeCanvasHtml(canvas, canvasDiv, annoList);
         });
     } else {
@@ -176,7 +176,7 @@ function getParticularSizeThumb(canvas, thumbSize){
 function getTextLines(canvas, annoList) {
     var html = "<div class='annoInfo textLines'>";
     annoList.resources.forEach(function(res){
-        if(res.motivation == "sc:painting" && res.resource["@type"] == "cnt:ContentAsText"){
+        if(res.motivation == "sc:painting" && res.resource["@type"] == "dctypes:Text"){
             html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on) + "'>" + res.resource.chars + "</a></div>";
         }
     });
