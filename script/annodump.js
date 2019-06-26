@@ -161,7 +161,13 @@ function makeCanvasHtml(canvas, canvasDiv, annoList){
 
 function getParticularSizeThumb(canvas, thumbSize){
     if (typeof canvas.thumbnail == 'undefined') {
+      var img = new Image();
+      img.src = canvas.images[0].resource["@id"]; 
+      if (img.height != 0) {
       image = canvas.images[0].resource["@id"];
+      } else {
+      image = canvas.images[0].resource.service["@id"] + "/full/200,/0/default.jpg"
+      }
     } else {
     if(canvas.thumbnail.service){
         var sizes = canvas.thumbnail.service.sizes;
