@@ -161,7 +161,7 @@ function makeCanvasHtml(canvas, canvasDiv, annoList){
 
 function getParticularSizeThumb(canvas, thumbSize){
     if (typeof canvas.thumbnail == 'undefined') {
-    return canvas.0.resource["@id"];
+      image = canvas.0.resource["@id"];
     } else {
     if(canvas.thumbnail.service){
         var sizes = canvas.thumbnail.service.sizes;
@@ -173,8 +173,9 @@ function getParticularSizeThumb(canvas, thumbSize){
         }
         return null;
     }
-    return canvas.thumbnail["@id"];
+      image = canvas.thumbnail["@id"];
     }
+    return image;
 }
 
 function getTextLines(canvas, annoList) {
