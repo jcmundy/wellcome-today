@@ -160,7 +160,7 @@ function makeCanvasHtml(canvas, canvasDiv, annoList){
 
 
 function getParticularSizeThumb(canvas, thumbSize){
-    if (typeof canvas.thumbnail["@id"] == 'undefined') {
+    if (typeof canvas.thumbnail == 'undefined') {
       image = canvas.images[0].resource["@id"];
     } else {
     if(canvas.thumbnail.service){
