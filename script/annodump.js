@@ -143,7 +143,7 @@ function appendCanvas(i, canvas){
 }
 
 function makeCanvasHtml(canvas, canvasDiv, annoList){
-    var html = "<div class='imgContainer'><a href='" + canvas.images[0].resource["@id"] + "'><img src='" + getParticularSizeThumb(canvas, 100) + "' /></a><br/>" + canvas.label + "</div>";
+    var html = "<div class='imgContainer'><a href='" + canvas.images[0].resource["@id"] + "'><img src='" + getParticularSizeThumb(canvas, 100) + "' width='200'/></a><br/>" + canvas.label + "</div>";
     if(annoList){
         html += "<div class='annoInfo'>" + annoList.resources.length + " annotations <a href='" + annoList["@id"] + "'>▷</a></div>";
         if(localStorage.getItem("showTextLines") == 'true') {
