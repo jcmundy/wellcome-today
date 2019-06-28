@@ -184,12 +184,19 @@ function getParticularSizeThumb(canvas, thumbSize){
     return image;
 }
 
+// Harvard art Museum manifest has chars in res.resource[0].chars
+// Harvard art Museum and Readux have position in res.on.selector - other have it in the url
+
 function getTextLines(canvas, annoList) {
     var html = "<div class='annoInfo textLines'>";
     annoList.resources.forEach(function(res){
         if(res.motivation == "sc:painting" || res.motivation == "oa:commenting" || res.motivation[0] == "oa.commenting" && res.resource.format == "text/html" || res.resource.format == "text/plain"){
             if(typeof res.on.selector == 'undefined') {
+            if(typeof res.resource.chars == 'undefined') {
+            html += "<div><a target='_blank' href='" + getOtherImageLink(canvas, res.on) + "'>" + res.resource[0].chars + "</a></div>";
+            } else {
             html += "<div><a target='_blank' href='" + getOtherImageLink(canvas, res.on) + "'>" + res.resource.chars + "</a></div>";
+            }
             } else {
             html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on.selector.value) + "'>" + res.resource.chars + "</a></div>";
             }
