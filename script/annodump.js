@@ -194,7 +194,11 @@ function getTextLines(canvas, annoList) {
             if(typeof res.on.selector == 'undefined') {
                 html += "<div><a target='_blank' href='" + getOtherImageLink(canvas, res.on) + "'>" + res.resource.chars + "</a></div>";
             } else {
-            html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on.selector.value) + "'>" + res.resource.chars + "</a></div>";
+                if(res.resource.chars != 'undefined') {
+                html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on.selector.value) + "'>" + res.resource.chars + "</a></div>";
+                } else {
+                html += "<div><a target='_blank' href='" + getImageLink(canvas, res.on.selector.value) + "'>" + res.resource[0].chars + "</a></div>";
+                }
             }
         }
     });
